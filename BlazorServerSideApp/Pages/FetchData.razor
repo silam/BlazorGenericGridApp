@@ -1,0 +1,35 @@
+﻿@page "/fetchdata"
+
+<PageTitle>Weather forecast</PageTitle>
+
+@using BlazorServerSideApp.Data
+@inject WeatherForecastService ForecastService
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+<Grid Items="forecasts" TItem="WeatherForecast">
+
+    <Columns>
+        <Column Name="Date" Label="Name"></Column>
+        <Column Name="TemperatureC" Label="Temp. (C)"></Column>
+
+        <Column Name="TemperatureF" Label="Temp. (F)"></Column>
+
+        <Column Name="Summary" Label="Summary"></Column>
+
+        
+    </Columns>
+</Grid>
+
+
+
+@code {
+    private IList<WeatherForecast> forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}
