@@ -30,6 +30,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(2000);
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
 }

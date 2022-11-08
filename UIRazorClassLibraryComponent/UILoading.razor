@@ -1,0 +1,11 @@
+﻿<div class="text-center align-items-center" style="height:50vh;">
+  <div class="spinner-border" role="status">
+    <span class="sr-only"></span>
+  </div>
+  <strong class="ml-2">@LoadingText</strong>
+</div>
+
+@code {
+    [Parameter]
+    public string LoadingText { get; set; }
+}
